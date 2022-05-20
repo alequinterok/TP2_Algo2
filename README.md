@@ -1,1 +1,1 @@
-# TP2_Algo2
+# TP2 para la materia Algoritmos y programación II de la Universidad de Buenos Aires.
