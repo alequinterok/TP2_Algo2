@@ -1,24 +1,34 @@
-#include "escritores.h"
 #include <iostream>
-#include <string>
 
 using namespace std;
 
-int main(){
+#include "novela.h"
+#include "historica.h"
+#include "poema.h"
+#include "cuento.h"
+#include "lista.h"
+#include "escritores.h"
+#include "carga_escritores.h"
+#include "carga_lecturas.h"
 
-    Escritor Escritor;
-   
-    Escritor.definir_nombre_apellido("Juan Perez");
-    Escritor.definir_nacionalidad("Argentina");
-    Escritor.definir_anio_nacimiento(1955);
-    Escritor.definir_anio_fallecimiento(1990);
-   
-    cout << "\nNombre del escritor: "<< Escritor.obtener_nombre_apellido() << endl;
-    cout << "Nacionalidad escritor: "<< Escritor.obtener_nacionalidad() << endl;
-    cout << "Anio de nacimiento: "<< Escritor.obtener_anio_nacimiento() << endl;
-    cout << "Anio de fallecimiento: "<< Escritor.obtener_anio_fallecimiento() << endl;
-    Escritor.modificar_anio_fallecimiento(2000);
-    cout << "Anio de fallecimiento: "<< Escritor.obtener_anio_fallecimiento() << endl;
-   
+int main() {
+
+    Lista<Escritor>* escritores = Carga_escritores("escritores.txt").obtener_lista();
+    Lista<Lectura>* lecturas = Carga_lecturas("lecturas.txt", escritores).obtener_lista();
+
+    for (int i = 1; i <= escritores->obtener_cantidad(); i++){
+
+        Escritor esc = *(escritores->obtener_dato_en(i));
+        cout << esc.obtener_nombre_apellido() << endl;
+    }
+
+    for (int i =1; i <= lecturas->obtener_cantidad(); i++){
+        lecturas->obtener_dato_en(i)->mostrar();
+    }
+
+    delete lecturas;
+    delete escritores;
+
     return 0;
 }
+
