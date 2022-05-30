@@ -24,7 +24,7 @@ public:
     Cola();
     
     // Pre: -
-    // Post: 
+    // Post: Destructor de la cola
     ~Cola();
 
     // Pre: El nodo a insertar no debe estar en la cola
@@ -42,6 +42,7 @@ public:
     // Pre: -
     // Post: Devuelve true si la cola esta vacia
     bool cola_vacia();
+
 };
 
 #endif // COLA_H_INCLUDED 
