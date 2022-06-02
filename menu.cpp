@@ -21,7 +21,7 @@ void Menu::imprimir_opciones(){
     cout << "| 9) Listar las lecturas de un determinado escritor.                                |" << endl;
     cout << "| 10) Listar las novelas de determinado género.                                     |"  << endl;
     cout << "| 11) Cola de lecturas no leidas ordenada por tiempo de lectura, de menor a mayor.  |" << endl;
-    cout << "| 12) Mostrar la primer lectura de la cola.                                         |" << endl;
+    cout << "| 12) Mostrar la primera lectura de la cola.                                         |" << endl;
     cout << "| 13) Salir.                                                                        |" << endl;
     cout << "|                                                                                   |"<< endl;
     cout << "+-----------------------------------------------------------------------------------+" << endl;
@@ -43,13 +43,10 @@ void Menu::ejecutar_menu(){
 
     imprimir_opciones();
 
-    //int opcion;
-    //cout << "Ingrese la opcion que desee: ";
-    //cin >> opcion;
-    int opcion = input_numero("la opcion que desee: ");
+    int opcion = input_numero("Ingrese la opcion que desee ");
     while (!opcion_valida(opcion)){
         cout << "Esa opcion no existe. Intentelo de nuevo.\n";
-        opcion = input_numero("la opcion que desee: ");
+        opcion = input_numero("Ingrese la opcion que desee ");
     }
 
     system("clear");
