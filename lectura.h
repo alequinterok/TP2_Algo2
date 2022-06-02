@@ -2,6 +2,7 @@
 #define LECTURA_H_INCLUDED
 
 #include <iostream>
+#include <string.h>
 #include "escritores.h"
 
 const int MAYOR = 1;
@@ -13,9 +14,10 @@ class Lectura{
 protected:
     string titulo;
     int minutos;
-
     Escritor* autor;
+    bool leida;
 
+    //constructor
     Lectura();
 
     /*
@@ -24,6 +26,12 @@ protected:
     */
     Lectura (const string titulo, const int minutos, const int anio, Escritor* autor);
 
+
+
+
+
+public:
+    int anio;
 
     /*
     *pre:
@@ -47,14 +55,25 @@ protected:
     Escritor* obtener_autor();
 
 
-public:
-    int anio;
-
     /*
     *pre:
     *post: imprime por pantalla la informacion de la lectura
     */
     virtual void mostrar();
+
+    virtual int obtener_genero();
+
+    /*
+    *pre:
+    *post: le asigna true a leida
+    */
+    void leer();
+
+    /*
+    *pre:
+    *post: devuelve el valor de leida
+    */
+    bool obtener_leida();
 
 
     /*
@@ -71,7 +90,18 @@ public:
     * --> si el anio de lectura es menor, devuelve MENOR
     * --> si son iguales devuelve IGUAL
     */
-    int comparar_anios (Lectura otra_lectura);
+    int comparar (Lectura otra_lectura);
+
+    /*
+    * otra_lectura previamente inicializada
+    * compara la lectura con otra_lectura segun el tiempo
+    * de lectura.
+    * --> si el tiempo de lectura es mayor, devuelve MAYOR
+    * --> si el tiempo de lectura es menor, devuelve MENOR
+    * --> si son iguales devuelve IGUAL
+    */
+    int comparar (Lectura otra_lectura, int a);
+
 };
 
 #endif // LECTURA_H_INCLUDED

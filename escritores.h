@@ -19,8 +19,6 @@ private:
 
     int anio_fallecimiento;
 
-    int cantidad_lecturas;
-
 public:
 
     Escritor(string nombre_apellido, string nacionalidad, int anio_nacimiento, int anio_fallecimiento);
@@ -35,12 +33,7 @@ public:
 
     int obtener_anio_fallecimiento();
 
-    int obtener_cant_lecturas();
-
     void mostrar();
-
-    void incrementar_cant_lecturas();
-    void decrementar_cant_lecturas();
 
     ~Escritor();
 };

@@ -23,10 +23,7 @@ private:
     Lista<Escritor>* lista_escritores;
     string tipo;
     Lectura* lectura;
-    /*Poema* poema;
-    Cuento* cuento;
-    Novela* novela;
-    Historica* historica;*/
+
 //metodos
 public:
 
@@ -42,7 +39,11 @@ private:
     //crea una lectura
     void crear_lectura();
 
+    //Le asigna el escritor a la lectura
     Escritor* asignar_escritor(string escritor_str);
+
+    //asigna el genero de la novela
+    Novela::Genero asignar_genero(string genero_str);
 };
 
 

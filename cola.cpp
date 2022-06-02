@@ -7,61 +7,56 @@ Cola::Cola() {
 
 
 Cola::~Cola() {
-    Nodo *aux;
-    while(frente != NULL){
-        aux = frente;
-        frente = frente->siguiente;
-        delete aux;
+    while(!cola_vacia()){
+        quitar();
     }
 }
 
 
-void Cola::insertar_cola(string _dato) {
-    Nodo *nuevo_nodo = new Nodo;
-    nuevo_nodo->dato = _dato;
-    nuevo_nodo->siguiente = NULL;
+void Cola::insertar_cola(Lectura** _dato) {
+    auto *nuevo_nodo = new Nodo<Lectura*>(_dato);
 
     if(cola_vacia()) {
         frente = nuevo_nodo;
-    } 
-    else {
-        fin->siguiente = nuevo_nodo;
     }
-    
+    else {
+        fin->cambiar_siguiente(nuevo_nodo);
+    }
+
     fin = nuevo_nodo;
 }
 
 
 void Cola::mostrar() {
-    Nodo *aux = frente;
+    Nodo<Lectura*> *aux = frente;
     while(aux != NULL) {
-        cout << aux->dato << endl;
-        aux = aux->siguiente;
+        Lectura** dato_aux = aux->obtener_dato();
+        (*dato_aux)->mostrar();
+        aux = aux->obtener_siguiente();
     }
 }
 
+Lectura** Cola::obtener_primero() {
+    return frente->obtener_dato();
+}
 
-string Cola::quitar() {
-    if(frente == NULL) {
-        return "";
-    }
-    
-    else {
-        Nodo *aux = frente;
-        frente = frente->siguiente;
-        string dato = aux->dato;
+
+
+void Cola::quitar() {
+    if(frente != NULL) {
+
+        Nodo<Lectura*> *aux = frente;
+        frente = frente->obtener_siguiente();
         delete aux;
-        return dato;
     }
 }
+
 
 
 bool Cola::cola_vacia() {
-    if(frente == NULL) {
+    if(frente == NULL)
         return true;
-    }
-    
-    else {
+
+    else
         return false;
-    }
 }

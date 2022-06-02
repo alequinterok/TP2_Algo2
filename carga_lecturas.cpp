@@ -8,6 +8,24 @@ Carga_lecturas::Carga_lecturas(string nombre_archivo, Lista<Escritor>* escritore
     cargar_lista(nombre_archivo);
 }
 
+Novela::Genero Carga_lecturas::asignar_genero(string genero_str) {
+    Novela::Genero genero;
+    if(genero_str == "DRAMA")
+        genero = Novela::DRAMA;
+    else if(genero_str == "COMEDIA")
+        genero = Novela::COMEDIA;
+    else if(genero_str == "FICCION")
+        genero = Novela::FICCION;
+    else if(genero_str == "SUSPENSO")
+        genero = Novela::SUSPENSO;
+    else if(genero_str == "TERROR")
+        genero = Novela::TERROR;
+    else if(genero_str == "ROMANTICA")
+        genero = Novela::ROMANTICA;
+    else
+        genero = Novela::HISTORICA;
+    return genero;
+}
 
 Escritor* Carga_lecturas::asignar_escritor(string escritor_str) {
     Escritor* escritor;
@@ -16,8 +34,11 @@ Escritor* Carga_lecturas::asignar_escritor(string escritor_str) {
     }
 
     else {
-
-        int referencia = (int)(escritor_str[1]) - 48;
+        string referencia_str;
+        for(int i= 1;i < (int)escritor_str.length();i++){
+            referencia_str += escritor_str[i];
+        }
+        int referencia = stoi(referencia_str);
 
         escritor = lista_escritores->obtener_dato_en(referencia);
 
@@ -47,8 +68,8 @@ void Carga_lecturas::crear_lectura(){
 
     }
     else{
-        string genero = archivo.leer_linea();
-        if (genero == HISTORICA){
+        Novela::Genero genero = asignar_genero(archivo.leer_linea());
+        if (genero == Novela::HISTORICA){
 
             string tema_string = archivo.leer_linea();
             char* tema = new char [(int)tema_string.length() + 1];
@@ -81,7 +102,7 @@ void Carga_lecturas::cargar_lista(string nombre_archivo) {
             // compara con la que está en la posición anterior
             int i = posicion - 1;
             // si es menor, compara con el anterior y asì hasta que llegue a uno que sea menor que este o al principio de la lista
-            while (lectura->comparar_anios(*(lista->obtener_dato_en(i))) == MENOR && i>0){
+            while (lectura->comparar(*(lista->obtener_dato_en(i))) == MENOR && i>0){
                 i--;
             }
             posicion++;

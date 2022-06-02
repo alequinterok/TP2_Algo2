@@ -3,19 +3,20 @@
 
 #include "lectura.h"
 
-const string HISTORICA = "HISTORICA";
+//const string HISTORICA = "HISTORICA";
 
 class Novela: public Lectura{
 //atributos
 public:
-    string genero;
+    enum Genero{DRAMA, COMEDIA, FICCION, SUSPENSO,TERROR, ROMANTICA, HISTORICA};
+    Genero genero;
 //metodos
 
     //inicializa la novela
-    Novela(std::string titulo, int minutos, int anio, Escritor* autor, string genero );
+    Novela(std::string titulo, int minutos, int anio, Escritor* autor, Genero genero );
 
     //devuelve el genero de la novela
-    std::string obtener_genero();
+    int obtener_genero() override;
 
     //imprime por pantalla la informaciòn de la novela
     void mostrar();

@@ -11,7 +11,6 @@ char* Historica::obtener_tema() {
 void Historica::mostrar() {
     Novela::mostrar();
     cout << " -Tema: " << tema << endl;
-
 }
 
 Historica::~Historica(){

@@ -16,7 +16,4 @@ void Cuento::mostrar() {
 }
 
 Cuento::~Cuento(){
-    if (autor != NULL){
-            autor->decrementar_cant_lecturas();
-    }
 }

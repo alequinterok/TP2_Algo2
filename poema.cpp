@@ -15,7 +15,5 @@ void Poema::mostrar() {
 }
 
 Poema::~Poema(){
-    if (autor != NULL){
-        autor->decrementar_cant_lecturas();
-    }
+
 }

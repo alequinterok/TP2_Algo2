@@ -7,9 +7,7 @@ Lectura::Lectura(const string titulo, const int minutos, const int anio, Escrito
     this->minutos = minutos;
     this->anio = anio;
     this->autor = autor;
-    if (autor != NULL){
-        this->autor->incrementar_cant_lecturas();
-    }
+    leida = false;
 }
 
 string Lectura::obtener_titulo(){
@@ -28,7 +26,7 @@ Escritor* Lectura::obtener_autor(){
     return autor;
 }
 
-int Lectura::comparar_anios (Lectura otra_lectura){
+int Lectura::comparar (Lectura otra_lectura){
     int comparacion = MAYOR;
 
     if (anio < otra_lectura.anio){
@@ -40,8 +38,32 @@ int Lectura::comparar_anios (Lectura otra_lectura){
     return comparacion;
 }
 
+int Lectura::comparar(Lectura otra_lectura, int a) {
+    int comparacion = MAYOR;
+
+    if (minutos < otra_lectura.obtener_minutos()){
+        comparacion = MENOR;
+    }else if (minutos == otra_lectura.obtener_minutos()){
+        comparacion = IGUAL;
+    }
+
+    return comparacion;
+}
+
+int Lectura::obtener_genero() {
+    return -1;
+}
+
+void Lectura::leer() {
+    leida = true;
+}
+
+bool Lectura::obtener_leida() {
+    return leida;
+}
+
 void Lectura::mostrar(){
-    cout << "LECTURA:" << endl;
+    cout << "\nLECTURA:" << endl;
     cout << "- titulo: " << titulo << endl;
     cout << "- minutos en leerse: " << minutos << endl;
     cout << "- anio de publicacion: " << anio << endl;

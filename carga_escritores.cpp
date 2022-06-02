@@ -32,19 +32,6 @@ void Carga_escritores::cargar_lista(string nombre_archivo) {
     archivo.cerrar_archivo();
 }
 
-//función de prueba :D
-/*void Carga_escritores::mostrar_escritor() {
-    Escritor escritor_ = lista->*obtener_dato_en(4);
-    cout<<escritor_.obtener_nombre_apellido()<<endl;
-    cout<<escritor_.obtener_nacionalidad()<<endl;
-    cout<<escritor_.obtener_anio_nacimiento()<<endl;
-    cout<<escritor_.obtener_anio_fallecimiento()<<endl;
-    Escritor escritorr_ = lista->*obtener_dato_en(5);
-    cout<<escritorr_.obtener_nombre_apellido()<<endl;
-    cout<<escritorr_.obtener_nacionalidad()<<endl;
-    cout<<escritorr_.obtener_anio_nacimiento()<<endl;
-    cout<<escritorr_.obtener_anio_fallecimiento()<<endl;
-}*/
 
 Lista<Escritor>* Carga_escritores::obtener_lista() {
     return lista;

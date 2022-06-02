@@ -19,9 +19,6 @@ public:
 
     void crear_escritor();
 
-    //esta es otra de prueba :D
-    //void mostrar_escritor();
-
     Lista<Escritor>* obtener_lista();
 };
 
