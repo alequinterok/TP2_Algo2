@@ -12,16 +12,20 @@ public:
     Genero genero;
 //metodos
 
-    //inicializa la novela
+    // Pre: -
+    // Post: Constructor de la clase novela
     Novela(std::string titulo, int minutos, int anio, Escritor* autor, Genero genero );
 
-    //devuelve el genero de la novela
+    // Pre: -
+    // Post: Devuelve el genero de la novela
     int obtener_genero() override;
 
-    //imprime por pantalla la informaciòn de la novela
+    // Pre: -
+    // Post: Imprime por pantalla la informaciòn de la novela
     void mostrar();
 
-    //destructor
+    // Pre: -
+    // Post: Destructor de novela
     ~Novela();
 };
 

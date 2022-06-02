@@ -15,20 +15,24 @@ protected:
 
 //metodos
 public:
-
-    //constructor
+    // Pre: -
+    // Post: Constructor de la clase archivo
     Archivo();
 
-    //abre el archivo
+    // Pre: Debe existir el archivo y al pasarlo por parametro debe ser un string
+    //Post: Abre el archivo
     void abrir_archivo(string nombre);
 
-    //lee una linea y la retorna
+    // Pre: -
+    // Post: Lee una linea del archivo y la retorna
     string leer_linea();
 
-    //cierra el archivo
+    // Pre: Debe haberse abierto el archivo
+    // Post: Cierra el archivo
     void cerrar_archivo();
 
-    //devuelve true si llego al fin del archivo
+    // Pre: -
+    //Post: Devuelve true si llego al fin del archivo
     bool fin_de_archivo();
 };
 

@@ -9,16 +9,20 @@ private:
     string libro;
 //metodos
 public:
-    //inicializa el cuento
+    // Pre: -
+    // Post: Constructor de la clase cuento
     Cuento(string titulo, int minutos, int anio, Escritor* autor, string libro);
 
-    //devuelve el libro al que pertenece el cuento
+    // Pre: -
+    // Post: Devuelve el libro al que pertenece el cuento
     std::string obtener_libro();
 
-    //imprime por pantalla la informacion del cuento
+    // Pre: -
+    // Post: Imprime por pantalla la informacion del cuento
     void mostrar();
 
-    //destructor
+    // Pre: -
+    // Post: Destructor de cuento
     ~Cuento();
 };
 

@@ -17,89 +17,68 @@ protected:
     Escritor* autor;
     bool leida;
 
-    //constructor
+    // Pre: -
+    // Post: Constructor de la clase lectura
     Lectura();
 
-    /*
-    *pre:
-    *post: inicializa la lectura
-    */
+    
+    // Pre: -
+    // Post: Constructor de la clase lectura
     Lectura (const string titulo, const int minutos, const int anio, Escritor* autor);
-
-
-
 
 
 public:
     int anio;
-
-    /*
-    *pre:
-    *post: devuelve el nombre del titulo de la lectura
-    */
+    
+    // Pre: -
+    // Post: Devuelve el nombre del titulo de la lectura
     string obtener_titulo();
-    /*
-    *pre:
-    *post: devuelve los minutos que tarda en leerse la lectura
-    */
+    
+    // Pre: -
+    // Post: Devuelve los minutos que tarda en leerse la lectura
     int obtener_minutos();
-    /*
-    *pre:
-    *post: devuelve el anio en que salio la lectura
-    */
+    
+    // Pre: -
+    // Post: Devuelve el anio en que salio la lectura
     int obtener_anio();
-    /*
-    *pre:
-    *post: devuelve el puntero al escritor de la lectura
-    */
+
+    // Pre: -
+    // Post: Devuelve el puntero al escritor de la lectura
     Escritor* obtener_autor();
-
-
-    /*
-    *pre:
-    *post: imprime por pantalla la informacion de la lectura
-    */
+    
+    // Pre: -
+    // Post: Imprime por pantalla la informacion de la lectura
     virtual void mostrar();
 
+    // Pre: -
+    // Post: Devuelve el genero de la lectura
     virtual int obtener_genero();
 
-    /*
-    *pre:
-    *post: le asigna true a leida
-    */
+    // Pre: -
+    // Post: Le asigna true a leida
     void leer();
 
-    /*
-    *pre:
-    *post: devuelve el valor de leida
-    */
+    // Pre: -
+    // Post: Devuelve el valor de leida
     bool obtener_leida();
-
-
-    /*
-    *pre:
-    *post: destructor virtual
-    */
+    
+    // Pre: -
+    // Post: Destructor virtual de la clase lectura
     virtual ~Lectura();
-
-    /*
-    * otra_lectura previamente inicializada
-    * compara la lectura con otra_lectura segun en anio en que
-    * salieron.
+    
+    // Pre: otra_lectura previamente inicializada
+    /* Post: compara la lectura con otra_lectura segun en anio en que salieron.
     * --> si el anio de lectura es mayor, devuelve MAYOR
     * --> si el anio de lectura es menor, devuelve MENOR
-    * --> si son iguales devuelve IGUAL
-    */
+    * --> si son iguales devuelve IGUAL */
     int comparar (Lectura otra_lectura);
 
-    /*
-    * otra_lectura previamente inicializada
-    * compara la lectura con otra_lectura segun el tiempo
+    // Pre: otra_lectura previamente inicializada
+    /* Post: compara la lectura con otra_lectura segun el tiempo
     * de lectura.
     * --> si el tiempo de lectura es mayor, devuelve MAYOR
     * --> si el tiempo de lectura es menor, devuelve MENOR
-    * --> si son iguales devuelve IGUAL
-    */
+    * --> si son iguales devuelve IGUAL */
     int comparar (Lectura otra_lectura, int a);
 
 };

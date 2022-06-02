@@ -10,16 +10,20 @@ private:
 //metodos
 public:
 
-    //inicializa la novela historica
+    // Pre: -
+    // Post: Constructor de la clase historica
     Historica (std::string titulo, int minutos, int anio, Escritor* autor, char* tema_);
 
-    //devuelve el tema de la novela historica
+    // Pre: -
+    //Post: Devuelve el tema de la novela historica
     char* obtener_tema();
 
-    //imprime por pantalla la informacion de la novela historica
+    // Pre: -
+    // Post: Imprime por pantalla la informacion de la novela historica
     void mostrar();
 
-    //destructor
+    // Pre: -
+    // Post: Destructor de historica
     ~Historica();
 };
 

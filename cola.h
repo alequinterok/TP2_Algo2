@@ -16,11 +16,11 @@ private:
 
 public:
     // Pre: -
-    // Post: Crea una cola vacia
+    // Post: Constructor de la clase cola
     Cola();
     
     // Pre: -
-    // Post: 
+    // Post: Destructor de la cola
     ~Cola();
 
     // Pre: El nodo a insertar no debe estar en la cola
@@ -31,8 +31,8 @@ public:
     // Post: Muestra los elementos de la cola
     void mostrar();
 
-    //Pre: -
-    //Post: Muestra el primer elemento de la cola
+    // Pre: -
+    // Post: Muestra el primer elemento de la cola
     Lectura** obtener_primero();
 
     // Pre: -

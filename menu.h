@@ -30,86 +30,104 @@ private:
     Cola* cola;
 
 public:
-    //constructor
+    // Pre: -
+    // Post: Constructor de la clase menu
     Menu(string archivo_lecturas, string archivo_esctritores);
 
-    //imprime las opciones que tiene el usuario en el menu
+    // Pre: -
+    // Post: Imprime por pantalla las opciones que tiene el usuario en el menu
     void imprimir_opciones();
 
-    //imprime un mensaje para volver al menu
+    // Pre: -
+    // Post: Imprime por pantalla un mensaje para volver al menu
     void mensaje_para_volver_al_menu();
 
-    //devuelve true si la opcion elegida esta entre la PRIMER_OPCION
-    //y la ULTIMA_OPCION
+    // Pre: Debe pasarse una opcion valida, de tipo int y dentro del margen de opciones
+    // Post: Devuelve true si la opcion elegida esta entre la PRIMER_OPCION y la ULTIMA_OPCION
     bool opcion_valida(int opcion);
 
-    //devuelve true si el numero esta dentro del 1 y la cantidad
-    //de escritores en la lista.
+    // Pre: Debe pasarse una opcion valida, de tipo int y dentro del margen de opciones
+    // Post: Devuelve true si el numero esta dentro del 1 y la cantidad de escritores en la lista.
     bool escritor_valido (int numero);
 
-    //devuelve true si el tipo es CUENTO o POEMA o NOVELA
+    // Pre: El texto debe ser un string valido
+    // Post: Devuelve true si el tipo es CUENTO o POEMA o NOVELA
     bool tipo_valido(string texto);
 
-    //devuelve true si el genero es valido y false en caso contrario
+    // Pre: Debe pasarse un genero valido y de tipo string
+    // Post: evuelve true si el genero es valido y false en caso contrario
     bool genero_valido(string genero);
 
-    //devuelve un puntero a un escritor nuevo creado por el usuario
+    // Pre: -
+    // Post: Devuelve un puntero a un escritor nuevo creado por el usuario
     Escritor* nuevo_escritor(bool lectura);
 
-    //ejecuta el menu por pantalla interactiva
+    // Pre: -
+    // Post: Ejecuta el menu por pantalla interactiva
     void ejecutar_menu();
 
-    // devuelve true si los caracteres de la cadena son números, false si no.
+    // Pre: -
+    // Post: Devuelve true si los caracteres de la cadena son números, false si no.
     static bool entrada_valida(string cadena);
 
-    //pide al usuario que ingrese lo que esta en tipo hasta que el ingreso sea válido.
+    // Pre: -
+    // Post: Pide al usuario que ingrese lo que esta en tipo hasta que el ingreso sea válido.
     static int input_numero(string tipo);
 
-    //elimina una lectura elegida por el usuario
+    // Pre: -
+    // Post: Elimina una lectura elegida por el usuario
     void quitar_lectura();
 
-    //cambia el dato del escritor segun lo que ingresa el usuario
-    //(Solo se puede cambiar la fecha de fallecimiento)
+    // Pre: -
+    // Post: Cambia el dato del escritor segun lo que ingresa el usuario (Solo se puede cambiar la fecha de fallecimiento)
     void cambiar_dato_escritor();
 
-    //lista las lecturas.
+    // Pre: -
+    // Post: Imprime por pantalla las lecturas de la lista.
     void listar_lecturas();
 
-    //lista los escritores.
+    // Pre: -
+    // Post: Imprime por pantalla los escritores de la lista.
     void listar_escritores();
 
-    //lista las lecturas entre determinados años ingresados por el usuario.
+    // Pre: -
+    // Post: Imprime por pantalla las lecturas entre determinados años ingresados por el usuario.
     void lecturas_entre_anios();
 
-    //Lista las novelas de determinado género ingresado por el usuario.
+    // Pre: -
+    // Post: Imprime por pantalla las novelas de un determinado género ingresado por el usuario.
     void novela_de_genero();
 
-    //Lista las lecturas de un determinado escritor que ingresa el usuario.
+    // Pre: -
+    // Post: Imprime por pantalla las lecturas de un determinado escritor ingresado por el usuario.
     void lecturas_del_escritor();
 
-    //muestra una lectura al azar y la marca como leida.
+    // Pre: -
+    // Post: Imprime por pantalla una lectura de manera aleatoria y la marca como leida.
     void lectura_al_azar();
 
-    //Devuelve un genero valido
+    // Pre: -
+    // Post: Devuelve un genero valido
     Novela::Genero asignar_genero();
 
-    //carga una nueva lectura a la lista de acuerdo a los datos ingresados
-    //por el usuario
+    // Pre: -
+    // Post: Carga una nueva lectura a la lista de acuerdo a los datos ingresados por el usuario
     void cargar_nueva_lectura();
 
-    //pre: No puede haber dos escritores con el mismo nombre
-    //agrega un escritor a la lista de escritores con los datos
-    //ingresados por el usuario
+    // Pre: No puede haber dos escritores con el mismo nombre
+    // Post:agrega un escritor a la lista de escritores con los datos ingresados por el usuario
     void agregar_escritor();
 
-    //crea la cola de lecturas
+    // Pre: -
+    // Post: Crea la cola de lecturas
     void crear_cola();
 
-    //Si la cola esta cargada, muestra la primer lectura de la cola,
-    //la marca como leida y la saca de la cola.
+    // Pre: -
+    // Post: Si la cola esta cargada, muestra la primer lectura de la cola, la marca como leida y la saca de la cola.
     void leer_una_lectura();
 
-    //destructor
+    // Pre: -
+    // Post: Destructor de la clase menu
     ~Menu();
 };
 

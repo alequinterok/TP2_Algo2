@@ -13,33 +13,26 @@ private:
 
 public:
 
-    /*
-    *pre:
-    *pos: construye un Nodo con el dato y le asigna como siguiente
-    *     un null
-    */
+    
+    // Pre: -
+    // Post: Construye un Nodo con el dato y le asigna como siguiente un null
     Nodo (Dato* dato);
 
-    /*
-    *pre: nuevo_siguiente es una direccion a un nodo valida
-    *pos: cambia el siguiente por el nuevo siguiente
-    */
+    
+    // Pre: nuevo_siguiente es una direccion a un nodo valida
+    // Post: cambia el siguiente por el nuevo siguiente
     void cambiar_siguiente (Nodo* nuevo_siguiente);
 
-    /*
-    *pre:
-    *pos: devuelve el dato
-    */
+    // Pre: -
+    // Post: Devuelve el dato
     Dato* obtener_dato ();
 
-    /*
-    *pre:
-    *pos: devuelve la direccion del siguiente dato
-    */
+    // Pre: -
+    // Post: Devuelve la direccion del siguiente dato
     Nodo* obtener_siguiente();
 
-    //destructor
-    //borra la memoria del puntero dato
+    // Pre: -
+    //Post: Destructor del nodo, borra la memoria del puntero dato
     ~Nodo();
 
 };

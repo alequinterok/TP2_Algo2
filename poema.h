@@ -9,16 +9,20 @@ private:
     int versos;
 //metodos
 public:
-    //inicializa el poema
+    // Pre: -
+    // Post: Constructor de la clase poema
     Poema(std::string titulo, int minutos, int anio, Escritor* autor, int versos);
 
-    //devuelve la cantidad de versos del poema
+    // Pre: -
+    // Post: Devuelve la cantidad de versos del poema
     int obtener_versos();
 
-    //imprime por pantalla la informacion del poema
+    // Pre: -
+    // Post: Imprime por pantalla la informacion del poema
     void mostrar();
 
-    //destructor
+    // Pre: -
+    // Post: Destructor de poema
     ~Poema();
 };
 

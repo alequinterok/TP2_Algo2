@@ -27,22 +27,30 @@ private:
 //metodos
 public:
 
+    // Pre: Debe haberse abierto el archivo de lecturas
+    // Post: Constructor de la clase carga_lecturas
     explicit Carga_lecturas(string nombre_archivo, Lista<Escritor>* escritores);
 
-    //carga una lista de lecturas
+    // Pre: Debe haberse abierto el archivo de lecturas
+    // Post: Carga una lista de lectura
     void cargar_lista(string nombre_archivo);
 
+    // Pre: -
+    // Post: Devuelve la lista de lecturas
     Lista<Lectura>* obtener_lista();
 
 private:
 
-    //crea una lectura
+    // Pre: -
+    // Post: Crea una lectura
     void crear_lectura();
 
-    //Le asigna el escritor a la lectura
+    // Pre: -
+    //Post: Le asigna el escritor a la lectura
     Escritor* asignar_escritor(string escritor_str);
 
-    //asigna el genero de la novela
+    // Pre: -
+    // Post: Asigna el genero de la novela
     Novela::Genero asignar_genero(string genero_str);
 };
 

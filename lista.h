@@ -18,56 +18,45 @@ private:
 
 public:
 
-    /*
-    *pre:
-    *pos: construye una lista vacia
-    */
+    
+    // Pre: -
+    // Post: Construye una lista vacia
     Lista();
 
-    /*
-    *pre: dato es un dato valido y la posicion se encuentra dentro
-          de la PRIMERA_POSICION y la ultima posicion + 1
-    *pos: inserta el dato en la posicion pedida
-    */
+    
+    // Pre: dato es un dato valido y la posicion se encuentra dentro de la PRIMERA_POSICION y la ultima posicion + 1
+    // Post: Inserta el dato en la posicion pedida
     void alta (Dato* dato, int posicion);
 
-    /*
-    *pre: la posicion se encuentra dentro de la PRIMERA_POSICION
-          y la ultima posicion + 1
-    *pos: quita el dato de la posicion pedida de la lista
-    */
+    
+    // Pre: La posicion se encuentra dentro de la PRIMERA_POSICION y la ultima posicion + 1
+    // Post: Quita el dato de la posicion pedida de la lista
     void baja (int posicion);
 
-    /*
-    *pre; la posicion se encuentra dentro de la PRIMERA_POSICION
-          y la ultima posicion + 1
-    *pos: devuelve el dato en la posicion pedida
-    */
+    
+    // Pre: La posicion se encuentra dentro de la PRIMERA_POSICION y la ultima posicion + 1
+    // Post: Devuelve el dato en la posicion pedida
     Dato* obtener_dato_en (int posicion);
 
-    /*
-    *pre:
-    *pos: devuelve true si la lista esta vacia y false en caso
-          contrario
-    */
+    
+    // Pre: -
+    // Post: Devuelve true si la lista esta vacia y false en caso contrario
     bool vacia ();
 
-    /*
-    *pre:
-    *pos: devuelve la cantidad de datos que tiene la lista
-    */
+    
+    // Pre: -
+    // Post: Devuelve la cantidad de datos que tiene la lista
     int obtener_cantidad ();
 
-    //destructor de la lista
+    // Pre: -
+    // Post: Destructor de la lista
     ~Lista();
 
 private:
 
-    /*
-    *pre: la posicion se encuentra dentro de la PRIMERA_POSICION
-          y la ultima posicion + 1
-    *pos: devuelve la direccion del nodo en la posicion pedida
-    */
+    
+    // Pre: La posicion se encuentra dentro de la PRIMERA_POSICION y la ultima posicion + 1
+    // Post: Devuelve la direccion del nodo en la posicion pedida
     Nodo<Dato>* obtener_nodo (int posicion);
 
 };

@@ -7,39 +7,24 @@ Menu::Menu(string archivo_lecturas, string archivo_escritores) {
 }
 
 void Menu::imprimir_opciones(){
-    cout << " ___________________________________" << endl;
-
-    cout << "|" << endl;
-
-    cout << "|1. Agregar una nueva lectura a la lista." << endl;
-
-    cout << "|2. Quitar una lectura de la lista." << endl;
-
-    cout << "|3. Agregar un escritor." << endl;
-
-    cout << "|4. Cambiar dato de un escritor." << endl;
-
-    cout << "|5. Listar los escritores." << endl;
-
-    cout << "|6. Sortear una lectura random para leer." << endl;
-
-    cout << "|7. Listar todas las lecturas." << endl;
-
-    cout << "|8. Listar las lecturas entre determinados años." << endl;
-
-    cout << "|9. Listar las lecturas de un determinado escritor." << endl;
-
-    cout << "|10. Listar las novelas de determinado género."  << endl;
-
-    cout << "|11. Cola de lecturas no leidas ordenada por tiempo de lectura, de menor a mayor." << endl;
-
-    cout << "|12. Mostrar la primer lectura de la cola." << endl;
-
-    cout << "|13. Salir." << endl;
-
-    cout << "|"<< endl;
-
-    cout << " ___________________________________" << endl;
+    cout << "+-----------------------------------------------------------------------------------+" << endl;
+    cout << "| Menu principal:                                                                   |" << endl;
+    cout << "|                                                                                   |" << endl;
+    cout << "| 1) Agregar una nueva lectura a la lista.                                          |" << endl;
+    cout << "| 2) Quitar una lectura de la lista.                                                |" << endl;
+    cout << "| 3) Agregar un escritor.                                                           |" << endl;
+    cout << "| 4) Cambiar dato de un escritor.                                                   |" << endl;
+    cout << "| 5) Listar los escritores.                                                         |" << endl;
+    cout << "| 6) Sortear una lectura random para leer.                                          |" << endl;
+    cout << "| 7) Listar todas las lecturas.                                                     |" << endl;
+    cout << "| 8) Listar las lecturas entre determinados años.                                   |" << endl;
+    cout << "| 9) Listar las lecturas de un determinado escritor.                                |" << endl;
+    cout << "| 10) Listar las novelas de determinado género.                                     |"  << endl;
+    cout << "| 11) Cola de lecturas no leidas ordenada por tiempo de lectura, de menor a mayor.  |" << endl;
+    cout << "| 12) Mostrar la primer lectura de la cola.                                         |" << endl;
+    cout << "| 13) Salir.                                                                        |" << endl;
+    cout << "|                                                                                   |"<< endl;
+    cout << "+-----------------------------------------------------------------------------------+" << endl;
 }
 
 void Menu::mensaje_para_volver_al_menu(){
@@ -296,10 +281,6 @@ void Menu::cambiar_dato_escritor (){
         cin >> posicion;
     }
     cout << "\nPuede modificar el anio de fallecimiento \n";
-    //cout << "Ingrese anio de fallecimiento de ";
-    //cout << escritores->obtener_dato_en(posicion)->obtener_nombre_apellido();
-    //cout << ": ";
-    //cin >> anio_fallecimiento;
     anio_fallecimiento = input_numero("Ingrese el anio de fallecimiento");
     int anio_nacimiento = escritores->obtener_dato_en(posicion)->obtener_anio_nacimiento();
     if(anio_nacimiento != -1) {
