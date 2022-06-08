@@ -6,18 +6,20 @@
 #include "lista.h"
 
 class Carga_escritores {
+//atributos
 private:
     Archivo archivo;
     Escritor* escritor;
     int posicion;
     Lista<Escritor>* lista;
 
+//metodos
 public:
-    // Pre: Debe haberse abierto el archivo de escritores
+    // Pre: 
     // Post: Constructor de la clase carga_escritores
     Carga_escritores(string nombre_archivo);
 
-    // Pre: Debe haberse abierto el archivo lista
+    // Pre: 
     // Post: Carga una lista de escritores
     void cargar_lista(string nombre_archivo);
 

@@ -22,18 +22,31 @@ const int ULTIMA_OPCION = 13;
 const char SI = 's';
 const char NO = 'n';
 
+const int CANTIDAD_GENEROS = 7;
+
 
 class Menu {
+//atributos
 private:
     Lista<Lectura> *lecturas;
     Lista<Escritor> *escritores;
     Cola* cola;
 
+//metodos
 public:
     // Pre: -
     // Post: Constructor de la clase menu
     Menu(string archivo_lecturas, string archivo_esctritores);
 
+    // Pre: -
+    // Post: Ejecuta el menu por pantalla interactiva
+    void ejecutar_menu();
+
+    // Pre: -
+    // Post: Destructor de la clase menu
+    ~Menu();
+
+private:
     // Pre: -
     // Post: Imprime por pantalla las opciones que tiene el usuario en el menu
     void imprimir_opciones();
@@ -42,29 +55,26 @@ public:
     // Post: Imprime por pantalla un mensaje para volver al menu
     void mensaje_para_volver_al_menu();
 
-    // Pre: Debe pasarse una opcion valida, de tipo int y dentro del margen de opciones
+    // Pre: 
     // Post: Devuelve true si la opcion elegida esta entre la PRIMER_OPCION y la ULTIMA_OPCION
     bool opcion_valida(int opcion);
 
-    // Pre: Debe pasarse una opcion valida, de tipo int y dentro del margen de opciones
+    // Pre:
     // Post: Devuelve true si el numero esta dentro del 1 y la cantidad de escritores en la lista.
     bool escritor_valido (int numero);
 
-    // Pre: El texto debe ser un string valido
-    // Post: Devuelve true si el tipo es CUENTO o POEMA o NOVELA
+    // Pre:
+    // Post: Devuelve true si el tipo es CUENTO o POEMA o NOVELA, devuelve false en caso contrario
     bool tipo_valido(string texto);
 
-    // Pre: Debe pasarse un genero valido y de tipo string
-    // Post: evuelve true si el genero es valido y false en caso contrario
+    // Pre:
+    // Post: Devuelve true si el genero es valido y false en caso contrario
     bool genero_valido(string genero);
 
     // Pre: -
     // Post: Devuelve un puntero a un escritor nuevo creado por el usuario
     Escritor* nuevo_escritor(bool lectura);
 
-    // Pre: -
-    // Post: Ejecuta el menu por pantalla interactiva
-    void ejecutar_menu();
 
     // Pre: -
     // Post: Devuelve true si los caracteres de la cadena son números, false si no.
@@ -114,7 +124,7 @@ public:
     // Post: Carga una nueva lectura a la lista de acuerdo a los datos ingresados por el usuario
     void cargar_nueva_lectura();
 
-    // Pre: No puede haber dos escritores con el mismo nombre
+    // Pre: No puede haber dos escritores con el mismo nombre en la lista de escritores
     // Post:agrega un escritor a la lista de escritores con los datos ingresados por el usuario
     void agregar_escritor();
 
@@ -123,12 +133,11 @@ public:
     void crear_cola();
 
     // Pre: -
-    // Post: Si la cola esta cargada, muestra la primer lectura de la cola, la marca como leida y la saca de la cola.
+    // Post: Si la cola esta cargada, muestra la primer lectura de la cola, la marca como leida y 
+    //       la saca de la cola.
+    //       Si no, imprime un mensaje avisando que la cola no esta cargada
     void leer_una_lectura();
 
-    // Pre: -
-    // Post: Destructor de la clase menu
-    ~Menu();
 };
 
 

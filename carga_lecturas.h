@@ -27,11 +27,11 @@ private:
 //metodos
 public:
 
-    // Pre: Debe haberse abierto el archivo de lecturas
+    // Pre: 
     // Post: Constructor de la clase carga_lecturas
     explicit Carga_lecturas(string nombre_archivo, Lista<Escritor>* escritores);
 
-    // Pre: Debe haberse abierto el archivo de lecturas
+    // Pre: 
     // Post: Carga una lista de lectura
     void cargar_lista(string nombre_archivo);
 

@@ -46,7 +46,12 @@ int Escritor::obtener_anio_fallecimiento() {
 void Escritor::mostrar(){
     cout << nombre_apellido << endl;
     cout << "  - nacionalidad: " << nacionalidad << endl;
-    cout << "  - anio de nacimiento: " << anio_nacimiento << endl;;
+    cout << "  - anio de nacimiento: ";
+    if (anio_nacimiento != ANIO_DESCONOCIDO){
+        cout << anio_nacimiento << endl;
+    }else{
+        cout << "desconocido" << endl;    
+    }
     if (anio_fallecimiento != SIGUE_VIVO){
         cout << "  - anio de fallecimiento: " << anio_fallecimiento << endl;
     }

@@ -6,6 +6,7 @@
 using namespace std;
 
 const int SIGUE_VIVO = -1;
+const int ANIO_DESCONOCIDO = -1;
 
 class Escritor{
 

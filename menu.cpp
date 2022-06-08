@@ -21,7 +21,7 @@ void Menu::imprimir_opciones(){
     cout << "| 9) Listar las lecturas de un determinado escritor.                                |" << endl;
     cout << "| 10) Listar las novelas de determinado género.                                     |"  << endl;
     cout << "| 11) Cola de lecturas no leidas ordenada por tiempo de lectura, de menor a mayor.  |" << endl;
-    cout << "| 12) Mostrar la primera lectura de la cola.                                         |" << endl;
+    cout << "| 12) Leer la primera lectura de la cola.                                         |" << endl;
     cout << "| 13) Salir.                                                                        |" << endl;
     cout << "|                                                                                   |"<< endl;
     cout << "+-----------------------------------------------------------------------------------+" << endl;
@@ -93,13 +93,14 @@ void Menu::ejecutar_menu(){
 }
 
 bool Menu::entrada_valida(string cadena) {
+    bool es_numerico = true;
+
     for(char i : cadena){
-        // En cuanto un caracter no sea numérico
         if( '0' > i || '9' < i )
-            return false;
+            es_numerico = false;
     }
 
-    return true;
+    return es_numerico;
 }
 
 int Menu::input_numero(string texto) {
@@ -117,7 +118,9 @@ int Menu::input_numero(string texto) {
 }
 
 void Menu::listar_lecturas() {
-    for (int i =1; i <= lecturas->obtener_cantidad(); i++){
+    cout << "LISTA DE LECTURAS \n" << endl;
+    
+    for (int i = 1; i <= lecturas->obtener_cantidad(); i++){
         lecturas->obtener_dato_en(i)->mostrar();
     }
 
@@ -126,6 +129,8 @@ void Menu::listar_lecturas() {
 }
 
 void Menu::listar_escritores() {
+    cout << "LISTA DE ESCRITORES \n" << endl;
+
     for (int i = 1; i <= escritores->obtener_cantidad(); i++){
 
         Escritor esc = *(escritores->obtener_dato_en(i));
@@ -138,43 +143,54 @@ void Menu::listar_escritores() {
 }
 
 void Menu::lecturas_entre_anios() {
+    cout << "LECTURAS ENTRE ANIOS \n" << endl;    
 
     int anio_i = input_numero("Ingrese el año inicial");
     int anio_f = input_numero("Ingrese el año final");
-    if(anio_i < anio_f) {
+
+    if (anio_i < anio_f){
         int posicion = 1;
+
         while (posicion <= lecturas->obtener_cantidad() &&
                lecturas->obtener_dato_en(posicion)->obtener_anio() < anio_i) {
             posicion++;
         }
+
         if (posicion <= lecturas->obtener_cantidad()) {
             cout << "\nLecturas publicadas entre los años " << anio_i << " y " << anio_f << ": " << endl;
+
             while (posicion <= lecturas->obtener_cantidad() &&
                    lecturas->obtener_dato_en(posicion)->obtener_anio() <= anio_f) {
                 lecturas->obtener_dato_en(posicion)->mostrar();
                 posicion++;
             }
-        } else {
+
+        }else{
             cout << "\nNo se encontraron lecturas entre esos años." << endl;
         }
-    } else {
+
+    }else{
         cout << "\nEl año inicial es mayor al año final." <<endl;
     }
+
     mensaje_para_volver_al_menu();
     ejecutar_menu();
 }
 
 void Menu::novela_de_genero() {
+    cout << "NOVELAS DE UN GENERO \n" << endl;
+
     cout << "1- DRAMA\n2- COMEDIA\n3- FICCION\n4- SUSPENSO\n5- TERROR\n6- ROMANTICA\n7- HISTORICA"<< endl;
 
     int genero;
-    do {genero = input_numero("Ingrese el número asociado al genero deseado");
-    }while(1 > genero || 7 < genero);
+    do{
+        genero = input_numero("Ingrese el número asociado al genero deseado");
+    }while (1 > genero || CANTIDAD_GENEROS < genero);
 
     cout << "\nNovelas del genero " << genero << ": " << endl;
 
-    for (int i =1; i <= lecturas->obtener_cantidad(); i++){
-        if(lecturas->obtener_dato_en(i)->obtener_genero() == (genero-1))
+    for (int i = 1; i <= lecturas->obtener_cantidad(); i++){
+        if(lecturas->obtener_dato_en(i)->obtener_genero() == (genero - 1))
             lecturas->obtener_dato_en(i)->mostrar();
     }
 
@@ -183,6 +199,8 @@ void Menu::novela_de_genero() {
 }
 
 void Menu::lecturas_del_escritor() {
+    cout << "LECTURAS DE UN ESCRITOR \n" << endl;
+
     cout << "\nEscritores:" << endl;
 
     for (int i = 1; i <= escritores->obtener_cantidad(); i++){
@@ -201,10 +219,14 @@ void Menu::lecturas_del_escritor() {
 
     int cantidad = 0;
 
-    for (int i =1; i <= lecturas->obtener_cantidad(); i++){
-        if(lecturas->obtener_dato_en(i)->obtener_autor()!= NULL && (string)lecturas->obtener_dato_en(i)->obtener_autor()->obtener_nombre_apellido() == escritor){
+    for (int i = 1; i <= lecturas->obtener_cantidad(); i++){
+
+        if(lecturas->obtener_dato_en(i)->obtener_autor() != NULL &&
+           (string)lecturas->obtener_dato_en(i)->obtener_autor()->obtener_nombre_apellido() == escritor){
+
             lecturas->obtener_dato_en(i)->mostrar();
             cantidad++;
+
         }
     }
 
@@ -278,14 +300,17 @@ void Menu::cambiar_dato_escritor (){
         cin >> posicion;
     }
     cout << "\nPuede modificar el anio de fallecimiento \n";
+
     anio_fallecimiento = input_numero("Ingrese el anio de fallecimiento");
+
     int anio_nacimiento = escritores->obtener_dato_en(posicion)->obtener_anio_nacimiento();
-    if(anio_nacimiento != -1) {
+    if (anio_nacimiento != ANIO_DESCONOCIDO){
         while (anio_fallecimiento < anio_nacimiento) {
             cout << "\nEl año de fallecimiento no puede ser menor que el año de nacimiento." << endl;
             anio_fallecimiento = input_numero("Ingrese el anio de fallecimiento");
         }
     }
+
 
     escritores->obtener_dato_en(posicion)->modificar_anio_fallecimiento(anio_fallecimiento);
 
@@ -309,12 +334,19 @@ void Menu::lectura_al_azar() {
 }
 
 Escritor* Menu::nuevo_escritor (bool lectura){
+    if (!lectura){
+        cout << "NUEVO ESCRITOR \n" << endl;
+    }
+
     Escritor* nuevo = NULL;
 
     string nuevo_nombre;
-    cout << "Nombre del autor ";
-    if(lectura)
-        cout << "(ingrese ANONIMO para autores anonimos): ";
+    cout << "Nombre del ";
+    if(lectura){
+        cout << "autor (ingrese ANONIMO para autores anonimos): ";
+    }else{
+        cout << "escritor: ";
+    }
     cin.ignore();
     getline(cin, nuevo_nombre);
 
@@ -339,20 +371,20 @@ Escritor* Menu::nuevo_escritor (bool lectura){
             cin >> nacionalidad;
 
             int anio_nacimiento = input_numero("Anio de nacimiento (En caso de no tener dato, ingrese 1)");
-
+            if (anio_nacimiento == 1){
+                anio_nacimiento = ANIO_DESCONOCIDO;
+            }
             int anio_fallecimiento = input_numero("Anio de fallecimiento (En caso de no tener dato, ingrese 1)");
-            if(anio_nacimiento != 1) {
-                while (anio_fallecimiento != 1 && anio_fallecimiento < anio_nacimiento) {
+            if (anio_fallecimiento == 1){
+                anio_fallecimiento = SIGUE_VIVO;            
+            }
+
+            if (anio_nacimiento != ANIO_DESCONOCIDO){
+                while (anio_fallecimiento != SIGUE_VIVO && anio_fallecimiento < anio_nacimiento) {
                     cout << "\nEl año de fallecimiento no puede ser menor que el año de nacimiento." << endl;
                     anio_fallecimiento = input_numero("Anio de fallecimiento");
                 }
             }
-
-            if(anio_nacimiento == 1)
-                anio_nacimiento = -1;
-
-            if(anio_fallecimiento == 1)
-                anio_fallecimiento = -1;
 
             nuevo = new Escritor(nuevo_nombre, nacionalidad, anio_nacimiento, anio_fallecimiento);
             escritores->alta(nuevo, escritores->obtener_cantidad() + 1);
@@ -361,6 +393,7 @@ Escritor* Menu::nuevo_escritor (bool lectura){
                 cout << "\n -- Nuevo escritor agregado \n" << endl;
         }
     }
+
     return nuevo;
 
 }
@@ -433,7 +466,7 @@ void Menu::cargar_nueva_lectura (){
         cout << "Tipo de lectura: ";
         cin >> tipo;
     }
-    cin.ignore(); // descarta el ultimo '\n' para que funcione el getline
+    cin.ignore();
 
     cout << "Titulo: ";
     getline(cin, titulo);
