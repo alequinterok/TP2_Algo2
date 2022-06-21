@@ -21,7 +21,7 @@ void Menu::imprimir_opciones(){
     cout << "| 9) Listar las lecturas de un determinado escritor.                                |" << endl;
     cout << "| 10) Listar las novelas de determinado género.                                     |"  << endl;
     cout << "| 11) Cola de lecturas no leidas ordenada por tiempo de lectura, de menor a mayor.  |" << endl;
-    cout << "| 12) Leer la primera lectura de la cola.                                         |" << endl;
+    cout << "| 12) Leer la primera lectura de la cola.                                           |" << endl;
     cout << "| 13) Salir.                                                                        |" << endl;
     cout << "|                                                                                   |"<< endl;
     cout << "+-----------------------------------------------------------------------------------+" << endl;
